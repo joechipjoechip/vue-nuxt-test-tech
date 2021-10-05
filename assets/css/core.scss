@@ -1,6 +1,5 @@
-// @import "@/assets/css/mediaqueries.scss";
+@use "sass:math";
 
 $offsetItem: 5px;
 $nbArticleInARow: 3;
-// $articleWidth: 100% / $nbArticleInARow;
-$articleWidth: 25%;
+$articleWidth: math.div(100%, $nbArticleInARow);
