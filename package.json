@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
-    "start": "nuxt generate & nuxt start",
-    "generate": "nuxt generate"
+    "start": "nuxt start",
+    "generate": "npm run generate"
   },
   "dependencies": {
     "@nuxtjs/dotenv": "^1.4.1",
