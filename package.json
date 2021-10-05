@@ -6,7 +6,7 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "npm run generate"
+    "generate": "nuxt generate"
   },
   "dependencies": {
     "@nuxtjs/dotenv": "^1.4.1",
