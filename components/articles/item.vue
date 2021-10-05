@@ -30,7 +30,14 @@
 
 			articleClickHandler(){
 
-				this.$nuxt.$emit("please-update-current-article", this.articleInfos.id);
+				this.$nuxt.$emit("please-update-current-article", 
+					{
+						articleID: this.articleInfos.id,
+						scrollLevelAtItemClick: window.scrollY
+					}
+				);
+
+				window.scrollTo(0, 0);
 
 				// in normal cases we would use ids to identify articles in the store
 				// but since we put ids on the fly at fetch, we cannot refer to them for the store logic (because they will change at every fetch, every page refresh) so we use .url, which seems to be unique for every article.

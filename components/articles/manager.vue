@@ -3,7 +3,7 @@
 	<div v-if="articles" class="wrapper">
 
 		<!-- LIST -->
-		<transition name="anim-list">
+		<transition name="anim-list" @after-enter="afterEnterHandler">
 
 			<div v-if="!currentArticle">
 
@@ -44,7 +44,8 @@
 		data(){
 			return {
 				articles: null,
-				currentArticle: null
+				currentArticle: null,
+				lastScrollLevel: 0
 			}
 		},
 		watch: {
@@ -60,7 +61,9 @@
 
 			this.$nuxt.$on('please-update-current-article', details => {
 
-				this.updateCurrentArticle(details);
+				this.lastScrollLevel = details.scrollLevelAtItemClick;
+
+				this.updateCurrentArticle(details.articleID);
 
 			});
 
@@ -119,6 +122,16 @@
 
 				this.currentArticle = this.articles.find(article => article.id === clickedArticleID);
 
+			},
+
+			afterEnterHandler(){
+
+				window.scrollTo({
+					top: this.lastScrollLevel,
+					left: 0,
+					behavior: 'smooth'
+				});
+
 			}
 
 		}
@@ -136,6 +149,7 @@
 		text-align: center;
 		font-size: 3em;
 		padding-top: 40px;
+		margin-bottom: 30px;
 	}
 
 	// TRANSITIONS

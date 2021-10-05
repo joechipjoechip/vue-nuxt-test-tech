@@ -20,26 +20,30 @@
 				il y a {{ Math.floor(( Date.now() - new Date(currentArticle.published_at).getTime() ) / 1000 / 60 / 60 / 24) }} jours
 			</p>
 
-			<h3 class="title">{{ currentArticle.title }}</h3>
+			<div class="content-body">
 
-			<a v-if="currentArticle.image" :href="currentArticle.url" target="_BLANK">
-				<img class="image" :src="currentArticle.image" :alt="currentArticle.title">
-			</a>
+				<h3 class="title">{{ currentArticle.title }}</h3>
 
-			<p class="description">{{ currentArticle.description }}</p>
+				<a v-if="currentArticle.image" :href="currentArticle.url" target="_BLANK">
+					<img class="image" :src="currentArticle.image" :alt="currentArticle.title">
+				</a>
 
-			<p v-if="currentArticle.author" class="author">{{ currentArticle.author }}</p>
+				<p class="description">{{ currentArticle.description }}</p>
 
-			<p class="source">source: {{ currentArticle.source }}</p>
+				<p v-if="currentArticle.author" class="author">{{ currentArticle.author }}</p>
 
-			<a :href="currentArticle.url" class="link" target="_BLANK">Voir l'article depuis la source</a>
+				<p class="source">source: {{ currentArticle.source }}</p>
 
-			<p 
-				class="unread-button"
-				@click="markAsUnreadHandler"
-			>
-				Marqué comme non lu et retourner à la liste
-			</p>
+				<a :href="currentArticle.url" class="link" target="_BLANK">Voir l'article depuis la source</a>
+
+				<p 
+					class="unread-button"
+					@click="markAsUnreadHandler"
+				>
+					Marqué comme non lu et retourner à la liste
+				</p>
+
+			</div>
 
 		</div>
 
@@ -118,6 +122,12 @@
 				}
 			}
 
+			.style-meta {
+				font-size: 0.8em;
+				text-align: left;
+				margin: 0;
+			}
+
 			.title {
 				font-size: 3em;
 				text-transform: uppercase;
@@ -128,24 +138,6 @@
 				}
 			}
 
-			.image {
-				max-width: 100%;
-				border-radius: 999px;
-				opacity: 1;
-
-				will-change: opacity;
-				transition: opacity .2s;
-
-				&:hover {
-					opacity: 0.8
-				}
-			}
-
-			.style-meta {
-				font-size: 0.8em;
-				text-align: left;
-				margin: 0;
-			}
 
 			.breadcrumb {
 
@@ -161,40 +153,70 @@
 
 			}
 
-			.description {
-				margin-top: $verticalMargin;
-			}
+			.content-body {
 
-			.source {
-				font-style: italic;
-			}
-
-			.link,
-			.unread-button {
-				width: 40%;
-				display: inline-block;
-				margin: 40px auto;
-				padding: 20px;
-				border: solid 2px rgba(0,0,0,0.2);
-				border-radius: 999px;
-				cursor: pointer;
-				color: #000;
-
-				will-change: border-color color;
-				transition: border-color, color .2s;
-
-				&:hover {
-					border-color: rgba(255,0,0,0.2);
-					color: #ff0000;
+				& > * {
+					margin-bottom: $verticalMargin;
 				}
+
+				a {
+					display: block;
+				}
+
+				.image {
+					max-width: 100%;
+					border-radius: 999px;
+					opacity: 1;
+
+					will-change: opacity;
+					transition: opacity .2s;
+
+					&:hover {
+						opacity: 0.8
+					}
+				}
+
+				.description {
+					// margin-top: $verticalMargin;
+				}
+
+				.source {
+					font-style: italic;
+				}
+
+				.link,
+				.unread-button {
+					width: 40%;
+					display: inline-block;
+					margin: 0 auto 40px auto;
+					padding: 20px 0;
+					border: solid 2px rgba(0,0,0,0.2);
+					border-radius: 999px;
+					cursor: pointer;
+					color: #000;
+
+					will-change: border-color color;
+					transition: border-color, color .2s;
+
+					@media #{ $tablet } {
+						width: 100%;
+					}
+
+					&:hover {
+						border-color: rgba(255,0,0,0.2);
+						color: #ff0000;
+					}
+				}
+
+				.link {
+					&:hover {
+						border-color: rgba(0,0,255,0.2);
+						color: #0000ff;
+					}
+				}
+
 			}
 
-			.link {
-				&:hover {
-					border-color: rgba(0,0,255,0.2);
-					color: #0000ff;
-				}
-			}
 		}
 	}
 
