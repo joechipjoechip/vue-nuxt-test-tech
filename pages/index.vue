@@ -2,7 +2,7 @@
 
 	<div>
 
-		<articles-manager/>
+		<articles-manager />
 
 	</div>
 

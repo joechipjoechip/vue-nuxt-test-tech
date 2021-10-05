@@ -17,7 +17,7 @@
 			</div>
 			
 			<p class="date style-meta">
-				il y a {{ Math.floor(( ( Date.now() / 1000 ) - ( new Date(currentArticle.published_at).getTime() / 1000 ) ) / 60 / 60 / 24) }} jours
+				il y a {{ Math.floor(( Date.now() - new Date(currentArticle.published_at).getTime() ) / 1000 / 60 / 60 / 24) }} jours
 			</p>
 
 			<h3 class="title">{{ currentArticle.title }}</h3>
