@@ -1,22 +1,22 @@
 # Test technique VueJS x NuxtJS
 
-## Comment installer :
+### Ideal Node version : v14.18.0
+
+## How to :
 
 ```bash
-# install dependencies
-$ npm install
+# 1 : install dependencies
+$ npm i
 
-# serve with hot reload at localhost:3000
+# 2 : launch in dev (with watchers) on localhost:3000
 $ npm run dev
 
-# build for production and launch server
+# Next : build for production and launch server
 $ npm run build
 $ npm run start
 
-# generate static project
+# Next : generate static project (/dist)
 $ npm run generate
 ```
 
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
 
-## Special Directories
