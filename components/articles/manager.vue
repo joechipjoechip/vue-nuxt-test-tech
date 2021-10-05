@@ -128,8 +128,6 @@
 
 <style lang="scss" scoped>
 
-	@import "@/styles/core.scss";
-
 	.wrapper {
 		font-family: 'Roboto', sans-serif;
 	}

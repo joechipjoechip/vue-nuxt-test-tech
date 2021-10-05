@@ -72,8 +72,6 @@
 
 <style lang="scss" scoped>
 
-	@import "~/styles/core.scss";
-
 	.viewer {
 
 		&-container {

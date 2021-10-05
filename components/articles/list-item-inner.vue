@@ -50,8 +50,6 @@
 
 <style lang="scss" scoped>
 
-	@import "@/styles/core.scss";
-
 	.list-item {
 
 		&-container {
