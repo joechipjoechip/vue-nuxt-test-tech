@@ -1,8 +1,8 @@
 <template>
 
-	<div class="list-item-container">
+	<div class="item-container">
 
-		<div class="list-item-inner"
+		<div class="item-inner"
 			:class="{ seen: $store.state.seen.seenArr.indexOf(articleInfos.url) !== -1 }"
 			@click="articleClickHandler"
 		>
@@ -30,7 +30,7 @@
 
 			articleClickHandler(){
 
-				this.$emit("please-update-current-article", this.articleInfos.id);
+				this.$nuxt.$emit("please-update-current-article", this.articleInfos.id);
 
 				// in normal cases we would use ids to identify articles in the store
 				// but since we put ids on the fly at fetch, we cannot refer to them for the store logic (because they will change at every fetch, every page refresh) so we use .url, which seems to be unique for every article.
@@ -50,7 +50,7 @@
 
 <style lang="scss" scoped>
 
-	.list-item {
+	.item {
 
 		&-container {
 			display: block;
@@ -72,7 +72,7 @@
 			flex-flow: column nowrap;
 			justify-content: space-between;
 
-			min-height: 10vh;
+			min-height: 100px;
 			height: 100%;
 			margin: $offsetItem * 2;
 			padding: $offsetItem * 4;
@@ -80,6 +80,8 @@
 			border-radius: 8px;
 			cursor: pointer;
 			opacity: 1;
+
+			color: $baseColorFont;
 
 			will-change: transform;
 			transition: transform .15s;
@@ -89,7 +91,7 @@
 			}
 
 			&:hover {
-				transform: translateY(-10px) scale(1.05);
+				transform: translateY(-10px);
 			}
 
 			& > * {
@@ -103,7 +105,8 @@
 			}
 
 			.source {
-				font-size: 0.7em;
+				font-size: 0.75em;
+				font-style: italic;
 				text-transform: capitalize;
 				text-align: right;
 			}

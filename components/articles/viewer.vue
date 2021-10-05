@@ -89,6 +89,9 @@
 			justify-content: flex-start;
 			align-items: center;
 			text-align: center;
+
+			background-color: $baseColor;
+			color: $baseColorFont;
 		}
 
 		&-inner {
@@ -118,6 +121,7 @@
 			.title {
 				font-size: 3em;
 				text-transform: uppercase;
+				margin: $verticalMargin auto;
 
 				@media #{ $mobile } {
 					font-size: 1.5em;
@@ -157,19 +161,17 @@
 
 			}
 
-			.date {
-				//
+			.description {
+				margin-top: $verticalMargin;
 			}
 
 			.source {
 				font-style: italic;
 			}
 
-			.link {
-				display: block;
-			}
-
+			.link,
 			.unread-button {
+				width: 40%;
 				display: inline-block;
 				margin: 40px auto;
 				padding: 20px;
@@ -184,6 +186,13 @@
 				&:hover {
 					border-color: rgba(255,0,0,0.2);
 					color: #ff0000;
+				}
+			}
+
+			.link {
+				&:hover {
+					border-color: rgba(0,0,255,0.2);
+					color: #0000ff;
 				}
 			}
 		}

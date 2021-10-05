@@ -1,7 +1,12 @@
 @use "sass:math";
 
-$layoutMax: 1400px;
+$layoutMax: 950px;
+
+$verticalMargin: 25px;
 
 $offsetItem: 5px;
 $nbArticleInARow: 3;
 $articleWidth: math.div(100%, $nbArticleInARow);
+
+$baseColor: #dbdbdb;
+$baseColorFont: rgb(70, 70, 70);

@@ -9,15 +9,7 @@
 
 				<h1 class="section-title">Articles</h1>
 
-				<div class="list-container">
-
-					<list-item-inner 
-						v-for="article in articles" :key="article.id"
-						:article-infos="article"
-						@please-update-current-article="updateCurrentArticle"
-					/>
-
-				</div>
+				<list :articles="articles" />
 
 			</div>
 
@@ -26,8 +18,7 @@
 		<!-- VIEWER -->
 		<transition name="anim-viewer">
 		
-			<viewer-inner 
-				v-if="currentArticle"
+			<viewer v-if="currentArticle"
 				:current-article="currentArticle" 
 				@please-remove-current-article="currentArticle = null"
 			/>
@@ -42,14 +33,13 @@
 
 	import { v4 as uuidv4 } from 'uuid';
 
-	import ListItemIner from "@/components/articles/list-item-inner.vue"
-
-	import ViewerInner from "@/components/articles/viewer-inner.vue"
+	import List from "@/components/articles/list.vue"
+	import Viewer from "@/components/articles/viewer.vue"
 
 	export default {
 		components: {
-			"list-item-inner": ListItemIner,
-			"viewer-inner": ViewerInner
+			"list": List,
+			"viewer": Viewer
 		},
 		data(){
 			return {
@@ -67,6 +57,12 @@
 
 		},
 		created(){
+
+			this.$nuxt.$on('please-update-current-article', details => {
+
+				this.updateCurrentArticle(details);
+
+			});
 
 			this.fetchMediastack();
 
@@ -119,6 +115,8 @@
 
 			updateCurrentArticle( clickedArticleID ){
 
+				console.log("updateCurrentArticle triggered");
+
 				this.currentArticle = this.articles.find(article => article.id === clickedArticleID);
 
 			}
@@ -137,16 +135,7 @@
 		display: block;
 		text-align: center;
 		font-size: 3em;
-	}
-
-	.list-container {
-		width: 80%;
-		max-width: $layoutMax;
-		margin: 0 auto;
-		display: flex;
-		flex-flow: row wrap;
-		justify-content: center;
-		align-items: stretch;
+		padding-top: 40px;
 	}
 
 	// TRANSITIONS

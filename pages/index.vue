@@ -1,6 +1,6 @@
 <template>
 
-	<div>
+	<div class="wrapper">
 
 		<articles-manager />
 
@@ -25,6 +25,8 @@ export default {
 
 <style lang="scss" scoped>
 
-	// 
+	.wrapper {
+		background-color: $baseColor;
+	}
 
 </style>

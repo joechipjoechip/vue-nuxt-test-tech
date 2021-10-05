@@ -56,8 +56,9 @@ export default {
   // GLOBAL CSS THAT ACTUALLY WORKS
   styleResources: {
     scss: [
-        '@/assets/css/mediaqueries.scss',
-        '@/assets/css/core.scss',
+      '@/assets/css/mediaqueries.scss',
+      '@/assets/css/core.scss',
+      '@/assets/css/reset.scss',
     ]
   },
   
