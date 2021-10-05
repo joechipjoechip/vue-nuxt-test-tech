@@ -1,8 +1,8 @@
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
-  target: 'static',
   ssr: false,
 
+  // activate this if you want to test on a real mobile device connected on you local network
   // server: {     
   //   port: 8000, // default: 3000     
   //   host: '0.0.0.0', // default: localhost   
