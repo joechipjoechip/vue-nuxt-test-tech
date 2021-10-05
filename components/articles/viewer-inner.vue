@@ -34,7 +34,12 @@
 
 			<a :href="currentArticle.url" class="link" target="_BLANK">Voir l'article depuis la source</a>
 
-			<button @click="markAsUnreadHandler">Marqué comme non lu et retourner à la liste</button>
+			<p 
+				class="unread-button"
+				@click="markAsUnreadHandler"
+			>
+				Marqué comme non lu et retourner à la liste
+			</p>
 
 		</div>
 
@@ -88,6 +93,7 @@
 
 		&-inner {
 			width: 80%;
+			max-width: $layoutMax;
 			margin: 10vh auto 0 auto;
 
 			.close-btn {
@@ -97,13 +103,23 @@
 				width: 30px;
 				height: 30px;
 				cursor: pointer;
+
+				@media #{ $big-screen } {
+					
+					top: 50px;
+					right: 50px;
+
+					width: 80px;
+					height: 80px;
+
+				}
 			}
 
 			.title {
 				font-size: 3em;
 				text-transform: uppercase;
 
-				@media #{ $mobile }{
+				@media #{ $mobile } {
 					font-size: 1.5em;
 				}
 			}
@@ -153,9 +169,22 @@
 				display: block;
 			}
 
-			button {
-				display: block;
-				margin: 20px auto;
+			.unread-button {
+				display: inline-block;
+				margin: 40px auto;
+				padding: 20px;
+				border: solid 2px rgba(0,0,0,0.2);
+				border-radius: 999px;
+				cursor: pointer;
+				color: #000;
+
+				will-change: border-color color;
+				transition: border-color, color .2s;
+
+				&:hover {
+					border-color: rgba(255,0,0,0.2);
+					color: #ff0000;
+				}
 			}
 		}
 	}

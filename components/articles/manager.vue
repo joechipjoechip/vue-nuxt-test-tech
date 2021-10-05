@@ -84,7 +84,6 @@
 					fetchOptions
 				)
 				.then(response => {
-
 					
 					return response.json();
 
@@ -141,7 +140,8 @@
 	}
 
 	.list-container {
-		width: 80%;	
+		width: 80%;
+		max-width: $layoutMax;
 		margin: 0 auto;
 		display: flex;
 		flex-flow: row wrap;

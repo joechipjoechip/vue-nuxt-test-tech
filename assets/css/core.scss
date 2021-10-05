@@ -1,5 +1,7 @@
 @use "sass:math";
 
+$layoutMax: 1400px;
+
 $offsetItem: 5px;
 $nbArticleInARow: 3;
 $articleWidth: math.div(100%, $nbArticleInARow);
