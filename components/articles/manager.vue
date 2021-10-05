@@ -78,29 +78,26 @@
 				const fetchOptions = {
 					method: 'GET',
 					headers: new Headers({
-						'Access-Control-Allow-Origin': "*"
+						'Allow-origin': "*",
+						'Access-Control-Allow-Origin': '*',
+						'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
+						'Access-Control-Allow-Headers': 'X-Requested-With,content-type',
+						'Access-Control-Allow-Credentials': true
 					})
 				};
 
 				fetch(
-					// `http://api.mediastack.com/v1/news?access_key=${process.env.MEDIASTACK_API_KEY}&countries=fr`,
-					'https://fr.wikipedia.org/w/api.php?'
-					+ 'format=json&action=query&generator=search&gsrnamespace=0&gsrlimit=20'
-					+ '&prop=pageimages|extracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max'
-					+ '&gsrsearch=zelda' ,
+					`http://api.mediastack.com/v1/news?access_key=${process.env.MEDIASTACK_API_KEY}&countries=fr`,
 					fetchOptions
 				)
 				.then(response => {
-
-					console.log("response  normal :", response);
 
 					return response.json();
 
 				})
 				.then(json => {
 
-					console.log("json  :", json);
-					// this.articles = this.assignID(json.data);
+					this.articles = this.assignID(json.data);
 
 				})
 				.catch(error => {
