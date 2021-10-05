@@ -1,0 +1,1 @@
+// only created to tell nuxt to activate vuex stuffs
