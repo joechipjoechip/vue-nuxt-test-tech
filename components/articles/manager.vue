@@ -43,7 +43,7 @@
 	import { v4 as uuidv4 } from 'uuid';
 
 	import ListItemIner from "@/components/articles/list-item-inner.vue"
-	
+
 	import ViewerInner from "@/components/articles/viewer-inner.vue"
 
 	export default {
@@ -80,17 +80,24 @@
 				};
 
 				fetch(
-					`http://api.mediastack.com/v1/news?access_key=${process.env.MEDIASTACK_API_KEY}&countries=fr`,
+					// `http://api.mediastack.com/v1/news?access_key=${process.env.MEDIASTACK_API_KEY}&countries=fr`,
+					'https://fr.wikipedia.org/w/api.php?'
+					+ 'format=json&action=query&generator=search&gsrnamespace=0&gsrlimit=20'
+					+ '&prop=pageimages|extracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max'
+					+ '&gsrsearch=zelda' ,
 					fetchOptions
 				)
 				.then(response => {
+
+					console.log("response  normal :", response);
 
 					return response.json();
 
 				})
 				.then(json => {
 
-					this.articles = this.assignID(json.data);
+					console.log("json  :", json);
+					// this.articles = this.assignID(json.data);
 
 				})
 				.catch(error => {
@@ -98,6 +105,8 @@
 					console.log("something wrong happens : ", error);
 
 				});
+
+				
 
 			},
 
