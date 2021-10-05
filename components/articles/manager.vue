@@ -76,7 +76,10 @@
 			fetchMediastack(){
 
 				const fetchOptions = {
-					method: 'GET'
+					method: 'GET',
+					headers: new Headers({
+						'Access-Control-Allow-Origin': "*"
+					})
 				};
 
 				fetch(
