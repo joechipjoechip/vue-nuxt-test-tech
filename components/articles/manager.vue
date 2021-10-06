@@ -118,8 +118,6 @@
 
 			updateCurrentArticle( clickedArticleID ){
 
-				console.log("updateCurrentArticle triggered");
-
 				this.currentArticle = this.articles.find(article => article.id === clickedArticleID);
 
 			},
