@@ -18,9 +18,9 @@ $ npm run start
 # Next : generate static project (/dist)
 $ npm run generate
 ```
-#### L'API utilisé pour fetcher les datas est Mediastack, son utilisation est assez simple et est détaillée ici : https://mediastack.com/documentation
+#### Used API is Mediastack, it's pretty simple to use and the doc is here : https://mediastack.com/documentation
 
-#### Le fetch des datas se fait tout seul à la création du component principal (@/components/articles/manager.vue)
+#### The data is made at the created() component hook of the manager (@/components/articles/manager.vue)
 
 #### Note : if you want to test the app on a real mobile device in dev mode, see nuxt.config.js, uncomment server{} and restart your 'npm run dev', then take your mobile, connect it on your localnetwork and check http://yourlocalip:8000
 
