@@ -26,4 +26,6 @@ $ npm run generate
 
 #### Any question ? ig -> @leelo.js
 
+#### Here is the hosted project : http://lionuxtjs.herokuapp.com/
+
 
